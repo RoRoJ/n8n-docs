@@ -10,11 +10,11 @@ A trigger node starts a workflow and supplies the initial data. You can use diff
 
 Popular triggers include:
 
-- **Application events**, like a page being added to Notion or a message sent in Telegram
+- **Application events**, like a page being added to Notion or a message sent in Telegram.
 - **Webhook calls**, like an HTTP request being received on an exposed URL.
 - **Scheduled triggers**, where you set the trigger to fire every day, hour, or other time interval.
 
-The trigger node passes data from the detected event into the workflow to be used by downstream nodes.
+The trigger node monitors for the specified event, and begins execution of the workflow when it occurs. The node passes data from the detected event into the workflow, to be used by downstream nodes.
 
 You are prompted to add a trigger node as soon as you create a new workflow. A production workflow needs at least one trigger node to determine when the workflow should run. 
 
@@ -27,15 +27,15 @@ Trigger nodes can be distinguished from regular nodes by their rounded edge and 
 A trigger can be any of the following:
 
 - [Manual trigger](/integrations/builtin/core-nodes/n8n-nodes-base.manualworkflowtrigger.md): You click a button in n8n. Useful for testing and development.
-- [App event](/integrations/builtin/trigger-nodes/index.md): Something happens in an app like Telegram, Notion or Airtable.
+- [App event](/integrations/builtin/trigger-nodes/index.md): Something happens in an app like Telegram, Notion, or Airtable.
 - [Scheduled trigger](/integrations/builtin/core-nodes/n8n-nodes-base.scheduletrigger/index.md): The trigger fires every day, hour, or other time interval.
 - [Webhook call](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/index.md): An HTTP request is received.
-- [Form submission](/integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md): A webform response is submitted.
-- [Execution](/integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md) by another workflow: An Execute Workflow node from a different workflow is called.
+- [Form submission](/integrations/builtin/core-nodes/n8n-nodes-base.formtrigger.md): A web form response is submitted.
+- [Execution by another workflow](/integrations/builtin/core-nodes/n8n-nodes-base.executeworkflowtrigger.md): An Execute Workflow node from a different workflow is called.
 - [Chat message](/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger/index.md): A chat message is sent to an AI node.
 - [Evaluation run](/integrations/builtin/core-nodes/n8n-nodes-base.evaluationtrigger.md): You run a dataset through the workflow to test performance.
 - [Email reception](/integrations/builtin/core-nodes/n8n-nodes-base.emailimap.md) (IMAP): A new email is received.
-- [Error](/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger.md): Another workflow has an error
+- [Error](/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger.md): Another workflow has an error.
 - [MCP server trigger](/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger.md): An MCP server connects to and executes a tool node.
 - [n8n trigger](/integrations/builtin/core-nodes/n8n-nodes-base.n8ntrigger.md): An event occurs on your n8n instance or the current workflow.
 - [SSE](/integrations/builtin/core-nodes/n8n-nodes-base.ssetrigger.md): A Server-Sent Event occurs.
@@ -79,7 +79,7 @@ Refer to the [Data section](/data/index.md) to learn more about data in n8n work
 
 ## Writing trigger nodes
 
-The method for writing your own trigger nodes is different to other nodes. Trigger nodes must be built using the programmatic style, not the declarative (JSON-based) style. Only the programmatic style allows them to handle the logic and operations necessary for triggers.
+The method for writing your own trigger nodes is different from other nodes. Trigger nodes must be built using the programmatic style, not the declarative (JSON-based) style. Only the programmatic style allows them to handle the logic and operations necessary for triggers.
 
 Refer to [Creating nodes](/integrations/creating-nodes/overview.md) for more information.
 
@@ -91,9 +91,9 @@ Ensure your workflow is in [active](/courses/level-one/chapter-5/chapter-5.8.md)
 
 ### Webhook-based trigger isn’t working
 
-- Click the **Listen for test event** button to test the trigger node with a testing URL. The webhook starts listening for a sample event. You can send this event via your external service, curL, or an n8n [HTTP request node](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md#use-the-http-request-node-to-trigger-the-webhook-node) in a different workflow.
-- n8n uses different [Webhook URLs](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/index.md) for testing and production. Ensure you have configured the node and the associated external service with the correct Webhook URL type. 
-- Refer to [Common problems with Webhook nodes](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md) for further help.
+- Click the **Listen for test event** button to test the trigger node with a testing URL. The webhook starts listening for a sample event. You can send this event via your external service, cURL, or an n8n [HTTP request node](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md#use-the-http-request-node-to-trigger-the-webhook-node) in a different workflow.
+- n8n uses [different webhook URLs](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/index.md) for testing and production. Ensure you have configured the node and the associated external service with the correct webhook URL type. 
+- Refer to [Common problems with webhook nodes](/integrations/builtin/core-nodes/n8n-nodes-base.webhook/common-issues.md) for further help.
 
 ### Polling-based trigger isn’t working
 
